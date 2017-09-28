@@ -1,0 +1,12 @@
+1. How does your data structure allow developers to access and manipulate the data?
+    The data structure I used, an array, has a number of methods that developers can use to access and
+    manipulate the data.
+
+2. If a developer wanted to find a specific element in your data structure, how would you
+search for it?
+    They can use the search method I made as part of this assignment. Or, in general, they can
+    iterate over an array and find the element they are looking for.
+
+3. What other real-world data can each structure represent?
+    Any sort of queue or waiting list could use an array to represent an order of people or
+    things in the real world. 
