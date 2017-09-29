@@ -1,0 +1,12 @@
+1. How does your data structure allow developers to access and manipulate the data?
+    This data structure is an stack. Although the pop, push and empty methods already exist in
+    ruby, creating them from scratch allows developers to access and use these methods and
+    see how they work "under the hood".
+
+2. If a developer wanted to find a specific element in your data structure, how would you
+search for it?
+    A developer can iterate over the array/stack and search for a match for what they desire.
+
+3. What other real-world data can each structure represent?
+    Many real-world systems use a LIFO method. One example would be a one-car garage. The car
+    must leave before another can empty.
