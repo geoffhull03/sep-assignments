@@ -6,13 +6,13 @@ class LinkedList
 
   # This method creates a new `Node` using `data`, and inserts it at the end of the list.
   def add_to_tail(node)
-    if @head.nil?
-      @head = node
-      @tail = node
-    else
+    if @tail
       @tail.next = node
-      @tail = node
+    else
+      @head = node
     end
+
+    @tail = node      
   end
 
   # This method removes the last node in the lists and must keep the rest of the list intact.
@@ -34,17 +34,10 @@ class LinkedList
 
   # This method prints out a representation of the list.
   def print
-    temp_node = @head
-
-    while temp_node != @tail
-      if temp_node.next == @tail
-        puts temp_node.data
-        puts temp_node.next.data
-        break
-      else
-        puts temp_node.data
-        temp_node = temp_node.next
-      end
+    current = self.head
+    while current != nil
+      puts current.data
+      current = current.next
     end
   end
 
