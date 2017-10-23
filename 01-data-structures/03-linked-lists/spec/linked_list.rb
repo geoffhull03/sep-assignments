@@ -4,93 +4,95 @@ class LinkedList
   attr_accessor :head
   attr_accessor :tail
 
-  # This method creates a new `Node` using `data`, and inserts it at the end of the list.
-  def add_to_tail(node)
-    if @tail
-      @tail.next = node
-    else
+    # This method creates a new `Node` using `data`, and inserts it at the end of the list.
+  def add_to_tail(key, value)
+    node = Node.new(key, value)
+    if @tail == nil
+      @tail = node
       @head = node
+    else
+      @tail.next = node
+      @tail = node
     end
-
-    @tail = node      
   end
 
   # This method removes the last node in the lists and must keep the rest of the list intact.
   def remove_tail
-    # Loop through the nodes until gets to the last node
-    temp_node = @head
-
-    if temp_node == @tail
-      @head = nil
-      @tail = nil
-    else
-      while temp_node.next != @tail
-        temp_node = temp_node.next
+    if @head != @tail
+      current_node = @head
+      while current_node.next != @tail
+        current_node = current_node.next
       end
-
-      @tail = temp_node
+      current_node.next = nil
+      @tail = current_node
+    else
+      @tail = nil
+      @head = @tail
+      @tail
     end
   end
 
   # This method prints out a representation of the list.
   def print
-    current = self.head
-    while current != nil
-      puts current.data
-      current = current.next
+    current_node = @head
+    begin
+      puts current_node.data
+      current_node = current_node.next
+    end until current_node == nil
+  end
+
+  # This method returns the amount of items (size) in the linked list
+  def size
+    current_node = @head
+    count = @head == nil ? 1 : 0
+
+    while current_node.next != nil
+      current_node = current_node.next
+      count += 1
     end
+    count
   end
 
   # This method removes `node` from the list and must keep the rest of the list intact.
-  def delete(node)
-    temp_node = @head
+  def delete(key, value)
+    node = Node.new(key, value)
+    current_node = @head
+    previous_node = nil
 
-    while temp_node != @tail
-      if @head == node
-        if @head == @tail
-          @head = nil
-          break
-        else
-          @head = @head.next
-          break
-        end
-      elsif temp_node.next == node
-        if temp_node.next == @tail
-          @tail = temp_node
-          break
-        else
-          temp_node.next = temp_node.next.next
-          break
-        end
+    if node == @head
+      @head = current_node.next
+    elsif node == @tail
+      @tail = current_node.next
+    else
+      while current_node != node
+        previous_node = current_node
+        current_node = current_node.next
       end
-
-      temp_node = temp_node.next
+      previous_node.next = current_node.next
     end
   end
 
   # This method adds `node` to the front of the list and must set the list's head to `node`.
-  def add_to_front(node)
-    temp_node = @head
-    @head = node
-    @head.next = temp_node
+  def add_to_front(key, value)
+    node = Node.new(key, value)
+    if @head == nil
+      @head = node
+    else
+      old_head_node = @head
+      @head = node
+      @head.next = old_head_node
+    end
   end
 
   # This method removes and returns the first node in the Linked List and must set Linked List's head to the second node.
   def remove_front
-    if !@head.nil?
-      if @head == @tail
-        temp_node = @head
-        @head = nil
-        @tail = nil
-
-        return temp_node
-      else
-        temp_node = @head
-        @head = @head.next
-        return temp_node
-      end
+    if @head.next != nil
+      old_head_node = @head
+      @head = @head.next
     else
-      nil
+      @head = nil
+      @tail = @head
     end
+    old_head_node
   end
 end
