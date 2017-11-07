@@ -1,0 +1,33 @@
+1. Describe an analogy for relating an algorithm that has efficiency O(1) and
+another algorithm that has O(2n).
+    Answer: An efficiency of 0(1) would be like a NASCAR race car and an algorithm
+    with an efficiency of 0(2n) would be a school bus.
+
+2. In plain English, what is the best case scenario for binary search?
+    Answer: The best case scenario for binary search would be that the middle point
+    of the set of data would be the exact result the search was looking for. Basically, the best
+    case would be one iteration through the data set.
+
+3. In plain English, what is the worst-case scenario for binary search?
+    Answer: The worst case scenario would be that the desired result is the first or last
+    index of a data set. Basically, the amount of iterations would be equal to the amount of
+    items in a data set, minus one.
+
+4. In plain English, what is the bounded-case scenario for binary search?
+    Answer: The bounded-case scenario for binary should would be any instance where the desired
+    value was not the best or worse case scenario.
+
+5./6. What is the limit of the function above as n approaches infinity?
+    Answer: Limit == 10
+
+7. What is the Big-O of an algorithm that has the data points above?
+    Answer: O(2^n)
+
+8. What is the Big-O of binary search?
+    Answer: O(log n)
+
+9. What is the Big-Ω of binary search?
+    Answer: O(1)
+
+10. What is the Big-Ө of binary search?
+    Answer: O(n!)
